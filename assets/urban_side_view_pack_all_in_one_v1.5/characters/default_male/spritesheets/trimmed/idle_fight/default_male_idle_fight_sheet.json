@@ -1,0 +1,76 @@
+{"frames": {
+
+"default_male_idle_fight_00.png":
+{
+	"frame": {"x":4,"y":4,"w":144,"h":268},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":184,"y":124,"w":144,"h":268},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_idle_fight_01.png":
+{
+	"frame": {"x":324,"y":4,"w":148,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":184,"y":136,"w":148,"h":256},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_idle_fight_02.png":
+{
+	"frame": {"x":540,"y":268,"w":156,"h":248},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":184,"y":144,"w":156,"h":248},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_idle_fight_03.png":
+{
+	"frame": {"x":156,"y":4,"w":160,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":184,"y":136,"w":160,"h":256},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_idle_fight_04.png":
+{
+	"frame": {"x":4,"y":280,"w":160,"h":264},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":184,"y":128,"w":160,"h":264},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_idle_fight_05.png":
+{
+	"frame": {"x":276,"y":268,"w":160,"h":256},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":184,"y":136,"w":160,"h":256},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_idle_fight_06.png":
+{
+	"frame": {"x":636,"y":4,"w":156,"h":248},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":184,"y":144,"w":156,"h":248},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_idle_fight_07.png":
+{
+	"frame": {"x":480,"y":4,"w":148,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":184,"y":136,"w":148,"h":256},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_idle_fight_sheet.png",
+	"format": "RGBA8888",
+	"size": {"w":796,"h":444},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6c860bb0dbeafe999c475d449a88fbaa:70b0a96f2d953a261c3d550be9411a13:8763982ac3767445ec8f57a64f09cf40$"
+}
+}

@@ -1,0 +1,52 @@
+{"frames": {
+
+"default_male_climb_ledge_idle_00.png":
+{
+	"frame": {"x":2,"y":594,"w":76,"h":142},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":46,"w":76,"h":142},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_climb_ledge_idle_01.png":
+{
+	"frame": {"x":2,"y":2,"w":76,"h":144},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":46,"w":76,"h":144},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_climb_ledge_idle_02.png":
+{
+	"frame": {"x":2,"y":150,"w":76,"h":144},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":46,"w":76,"h":144},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_climb_ledge_idle_03.png":
+{
+	"frame": {"x":2,"y":298,"w":76,"h":144},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":46,"w":76,"h":144},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_climb_ledge_idle_04.png":
+{
+	"frame": {"x":2,"y":446,"w":76,"h":144},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":46,"w":76,"h":144},
+	"sourceSize": {"w":256,"h":256}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_climb_ledge_idle_sheet@0.5x.png",
+	"format": "RGBA8888",
+	"size": {"w":80,"h":738},
+	"scale": "0.5",
+	"smartupdate": "$TexturePacker:SmartUpdate:064345b92152b8d3129b10c942948e8c:c8d99f001b6c14468f30bb4ae97c2237:a1228515b5916b40fe9d1152d83015f5$"
+}
+}

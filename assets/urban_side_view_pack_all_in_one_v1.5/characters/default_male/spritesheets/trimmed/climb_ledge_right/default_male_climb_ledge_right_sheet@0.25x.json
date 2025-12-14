@@ -1,0 +1,60 @@
+{"frames": {
+
+"default_male_climb_ledge_right_00.png":
+{
+	"frame": {"x":142,"y":1,"w":39,"h":66},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":47,"y":27,"w":39,"h":66},
+	"sourceSize": {"w":128,"h":128}
+},
+"default_male_climb_ledge_right_01.png":
+{
+	"frame": {"x":1,"y":39,"w":46,"h":67},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":47,"y":25,"w":46,"h":67},
+	"sourceSize": {"w":128,"h":128}
+},
+"default_male_climb_ledge_right_02.png":
+{
+	"frame": {"x":1,"y":1,"w":36,"h":70},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":47,"y":25,"w":36,"h":70},
+	"sourceSize": {"w":128,"h":128}
+},
+"default_male_climb_ledge_right_03.png":
+{
+	"frame": {"x":139,"y":42,"w":51,"h":68},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":55,"y":21,"w":51,"h":68},
+	"sourceSize": {"w":128,"h":128}
+},
+"default_male_climb_ledge_right_04.png":
+{
+	"frame": {"x":70,"y":39,"w":47,"h":67},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":49,"y":24,"w":47,"h":67},
+	"sourceSize": {"w":128,"h":128}
+},
+"default_male_climb_ledge_right_05.png":
+{
+	"frame": {"x":73,"y":1,"w":36,"h":67},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":51,"y":26,"w":36,"h":67},
+	"sourceSize": {"w":128,"h":128}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_climb_ledge_right_sheet@0.25x.png",
+	"format": "RGBA8888",
+	"size": {"w":209,"h":94},
+	"scale": "0.25",
+	"smartupdate": "$TexturePacker:SmartUpdate:0497e83983081a71fb109100d1e48a0b:7f64581ba92fc694fceb6b84dad81252:64b46e5da60a2a64fe9934b617ddb56d$"
+}
+}

@@ -1,0 +1,44 @@
+{"frames": {
+
+"default_male_talk_sad_00.png":
+{
+	"frame": {"x":4,"y":4,"w":120,"h":284},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":204,"y":108,"w":120,"h":284},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_talk_sad_01.png":
+{
+	"frame": {"x":4,"y":296,"w":120,"h":284},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":204,"y":108,"w":120,"h":284},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_talk_sad_02.png":
+{
+	"frame": {"x":4,"y":588,"w":120,"h":284},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":204,"y":108,"w":120,"h":284},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_talk_sad_03.png":
+{
+	"frame": {"x":4,"y":880,"w":120,"h":284},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":204,"y":108,"w":120,"h":284},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_talk_sad_sheet.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":1168},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:224ee18606ab6db41333a3b03e090a4d:e9b458bb5a786e21a552bd043c358f16:b5517c21ac86da25af5863f0b2658959$"
+}
+}

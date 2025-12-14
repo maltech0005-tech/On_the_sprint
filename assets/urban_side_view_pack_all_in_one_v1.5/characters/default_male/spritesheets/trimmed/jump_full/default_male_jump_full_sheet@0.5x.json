@@ -1,0 +1,92 @@
+{"frames": {
+
+"default_male_jump_full_00.png":
+{
+	"frame": {"x":142,"y":2,"w":80,"h":108},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":88,"w":80,"h":108},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_jump_full_01.png":
+{
+	"frame": {"x":2,"y":154,"w":64,"h":146},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":100,"y":24,"w":64,"h":146},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_jump_full_02.png":
+{
+	"frame": {"x":74,"y":2,"w":64,"h":142},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":100,"y":8,"w":64,"h":142},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_jump_full_03.png":
+{
+	"frame": {"x":150,"y":188,"w":72,"h":134},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":98,"y":4,"w":72,"h":134},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_jump_full_04.png":
+{
+	"frame": {"x":74,"y":296,"w":72,"h":128},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":100,"y":0,"w":72,"h":128},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_jump_full_05.png":
+{
+	"frame": {"x":70,"y":154,"w":66,"h":138},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":100,"y":8,"w":66,"h":138},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_jump_full_06.png":
+{
+	"frame": {"x":2,"y":2,"w":68,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":98,"y":16,"w":68,"h":148},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_jump_full_07.png":
+{
+	"frame": {"x":2,"y":304,"w":68,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":100,"y":94,"w":68,"h":102},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_jump_full_08.png":
+{
+	"frame": {"x":142,"y":114,"w":70,"h":80},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":100,"y":116,"w":70,"h":80},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_jump_full_09.png":
+{
+	"frame": {"x":150,"y":326,"w":68,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":100,"y":106,"w":68,"h":90},
+	"sourceSize": {"w":256,"h":256}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_jump_full_sheet@0.5x.png",
+	"format": "RGBA8888",
+	"size": {"w":224,"h":426},
+	"scale": "0.5",
+	"smartupdate": "$TexturePacker:SmartUpdate:4132e22903a8a6b43b90bbfa24acf17f:1f56d6009291b071b07cfcdda8377430:36afafc3481d11bce7e2688768d8aa8c$"
+}
+}

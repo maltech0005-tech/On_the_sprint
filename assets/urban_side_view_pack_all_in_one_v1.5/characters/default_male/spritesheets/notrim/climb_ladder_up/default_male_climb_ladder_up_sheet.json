@@ -1,0 +1,44 @@
+{"frames": {
+
+"default_male_climb_ladder_up_00.png":
+{
+	"frame": {"x":4,"y":4,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_climb_ladder_up_01.png":
+{
+	"frame": {"x":524,"y":4,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_climb_ladder_up_02.png":
+{
+	"frame": {"x":4,"y":524,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_climb_ladder_up_03.png":
+{
+	"frame": {"x":524,"y":524,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_climb_ladder_up_sheet.png",
+	"format": "RGBA8888",
+	"size": {"w":1040,"h":1040},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f9c11c4b1bab3a3102a0f9c338d1eedd:ae1f1e4675ae93c26b7bcc09962e0cbe:17c9d3b8b22e42d758e55660858a883f$"
+}
+}

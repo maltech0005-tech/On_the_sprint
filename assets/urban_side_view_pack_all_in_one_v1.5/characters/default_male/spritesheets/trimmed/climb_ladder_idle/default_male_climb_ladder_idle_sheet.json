@@ -1,0 +1,20 @@
+{"frames": {
+
+"default_male_climb_ladder_idle_00.png":
+{
+	"frame": {"x":4,"y":4,"w":140,"h":252},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":184,"y":88,"w":140,"h":252},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_climb_ladder_idle_sheet.png",
+	"format": "RGBA8888",
+	"size": {"w":148,"h":260},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4aa94929f9963b1b5f0a39482a2e43a7:909a06ee76522d1b72e2b680804ebc4a:5c1092f70a55aa7ee1bce0fbb41fefd5$"
+}
+}

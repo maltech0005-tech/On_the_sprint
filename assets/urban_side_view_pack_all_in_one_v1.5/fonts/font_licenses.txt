@@ -1,0 +1,17 @@
+Font Licenses
+
+This project uses the following fonts:
+
+1. Alphakind
+   - Author: Khurasan
+   - License: Free for personal and commercial use
+   - Source: https://www.creativefabrica.com/product/alphakind/ref/53/
+   - Included files: .ttf, .otf, ReadMe, license info
+
+2. Patrick Hand SC
+   - Author: Google Fonts
+   - License: Open Font License (OFL)
+   - Source: https://fonts.google.com/specimen/Patrick+Hand+SC
+   - Included file: .ttf
+
+These fonts are provided under their respective licenses and are not owned by Daniel Benítez. Please refer to the original license files included in each folder for details.

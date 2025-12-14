@@ -1,0 +1,36 @@
+{"frames": {
+
+"default_male_jump_fall_loop_00.png":
+{
+	"frame": {"x":4,"y":4,"w":136,"h":296},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":188,"y":32,"w":136,"h":296},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_jump_fall_loop_01.png":
+{
+	"frame": {"x":292,"y":4,"w":132,"h":296},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":192,"y":32,"w":132,"h":296},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_jump_fall_loop_02.png":
+{
+	"frame": {"x":148,"y":4,"w":136,"h":296},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":188,"y":32,"w":136,"h":296},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_pickup_ground_sheet.png",
+	"format": "RGBA8888",
+	"size": {"w":428,"h":304},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c27b8a36a14b4b5b78fb2e534a0f710b:b7f2cd39b9264f8e597570bb94c6bbd8:e56b068d6a05ca17eeab71c1d3bd870b$"
+}
+}

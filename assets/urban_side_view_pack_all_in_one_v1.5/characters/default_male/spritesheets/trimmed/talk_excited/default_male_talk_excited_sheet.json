@@ -1,0 +1,44 @@
+{"frames": {
+
+"default_male_talk_excited_00.png":
+{
+	"frame": {"x":4,"y":4,"w":136,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":212,"y":136,"w":136,"h":256},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_talk_excited_01.png":
+{
+	"frame": {"x":4,"y":268,"w":136,"h":256},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":212,"y":136,"w":136,"h":256},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_talk_excited_02.png":
+{
+	"frame": {"x":148,"y":4,"w":136,"h":256},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":212,"y":136,"w":136,"h":256},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_talk_excited_03.png":
+{
+	"frame": {"x":268,"y":148,"w":136,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":212,"y":136,"w":136,"h":256},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_talk_excited_sheet.png",
+	"format": "RGBA8888",
+	"size": {"w":408,"h":408},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:bb622d704ed97496af3a7f20e595d9c4:38bfeef302f9a921704284d8667ee5c2:675b742436474271e5e906ffea8cdfd7$"
+}
+}

@@ -1,0 +1,44 @@
+{"frames": {
+
+"default_male_punch_mid_straight_00.png":
+{
+	"frame": {"x":2,"y":2,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_punch_mid_straight_01.png":
+{
+	"frame": {"x":262,"y":2,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_punch_mid_straight_02.png":
+{
+	"frame": {"x":2,"y":262,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_punch_mid_straight_03.png":
+{
+	"frame": {"x":262,"y":262,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_punch_mid_straight_sheet@0.5x.png",
+	"format": "RGBA8888",
+	"size": {"w":520,"h":520},
+	"scale": "0.5",
+	"smartupdate": "$TexturePacker:SmartUpdate:bcd5edd093b55c0aa4b5e2d499410fdb:2d2b25570e435ed7fbe6661e214bd622:117d68e5aedd8cfe7b14e52780dba99f$"
+}
+}

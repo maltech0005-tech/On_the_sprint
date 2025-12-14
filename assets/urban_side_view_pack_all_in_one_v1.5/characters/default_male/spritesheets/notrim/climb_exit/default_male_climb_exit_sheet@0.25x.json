@@ -1,0 +1,44 @@
+{"frames": {
+
+"default_male_climb_exit_00.png":
+{
+	"frame": {"x":1,"y":1,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"default_male_climb_exit_01.png":
+{
+	"frame": {"x":131,"y":1,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"default_male_climb_exit_02.png":
+{
+	"frame": {"x":1,"y":131,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"default_male_climb_exit_03.png":
+{
+	"frame": {"x":131,"y":131,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_climb_exit_sheet@0.25x.png",
+	"format": "RGBA8888",
+	"size": {"w":260,"h":260},
+	"scale": "0.25",
+	"smartupdate": "$TexturePacker:SmartUpdate:0873a86f70184b6d1543afa8be3eccc7:f14ff0ed762a7aed6d8fee1d755a9573:afd764b8bedb617fe8cc2427716c9ebe$"
+}
+}

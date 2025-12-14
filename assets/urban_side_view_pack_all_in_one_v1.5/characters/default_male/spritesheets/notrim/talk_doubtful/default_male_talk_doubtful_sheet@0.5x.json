@@ -1,0 +1,44 @@
+{"frames": {
+
+"default_male_talk_doubtful_00.png":
+{
+	"frame": {"x":2,"y":2,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_talk_doubtful_01.png":
+{
+	"frame": {"x":262,"y":2,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_talk_doubtful_02.png":
+{
+	"frame": {"x":2,"y":262,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_talk_doubtful_03.png":
+{
+	"frame": {"x":262,"y":262,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_talk_doubtful_sheet@0.5x.png",
+	"format": "RGBA8888",
+	"size": {"w":520,"h":520},
+	"scale": "0.5",
+	"smartupdate": "$TexturePacker:SmartUpdate:3373b3b9ae4d98b375b81a087aa581c5:6fa810fddb26afa8d539e8fdcac33110:714b886e4225e62b37d2ca6d230a9689$"
+}
+}

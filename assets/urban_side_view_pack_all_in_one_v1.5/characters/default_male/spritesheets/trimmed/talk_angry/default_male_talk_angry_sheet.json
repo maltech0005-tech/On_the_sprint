@@ -1,0 +1,44 @@
+{"frames": {
+
+"default_male_talk_angry_00.png":
+{
+	"frame": {"x":4,"y":4,"w":140,"h":248},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":212,"y":144,"w":140,"h":248},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_talk_angry_01.png":
+{
+	"frame": {"x":152,"y":4,"w":140,"h":248},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":212,"y":144,"w":140,"h":248},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_talk_angry_02.png":
+{
+	"frame": {"x":300,"y":4,"w":140,"h":248},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":212,"y":144,"w":140,"h":248},
+	"sourceSize": {"w":512,"h":512}
+},
+"default_male_talk_angry_03.png":
+{
+	"frame": {"x":448,"y":4,"w":140,"h":248},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":212,"y":144,"w":140,"h":248},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_talk_angry_sheet.png",
+	"format": "RGBA8888",
+	"size": {"w":592,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e8ed5f5b729756df6672bb57ca89bd07:c4f03e98aba86a84fd1e4e0dfc0cbf7c:f65ecc5dd15c4b34953dcbc0769b4593$"
+}
+}

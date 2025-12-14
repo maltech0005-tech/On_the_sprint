@@ -1,0 +1,21 @@
+{"frames": {
+
+"default_male_jump_full_09.png":
+{
+	"frame": {"x":4,"y":4,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_jump_full_sheet-1.png",
+	"format": "RGBA8888",
+	"size": {"w":520,"h":520},
+	"scale": "1",
+	"related_multi_packs": [ "default_male_jump_full_sheet-0.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:89d4e37b4f047f46ef1052912ea85740:1f56d6009291b071b07cfcdda8377430:2fe372e6f057aad52fa909a3324c1afe$"
+}
+}

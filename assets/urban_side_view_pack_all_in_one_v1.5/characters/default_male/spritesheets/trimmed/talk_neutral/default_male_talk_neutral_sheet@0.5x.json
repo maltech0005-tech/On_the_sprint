@@ -1,0 +1,44 @@
+{"frames": {
+
+"default_male_talk_neutral_00.png":
+{
+	"frame": {"x":2,"y":2,"w":72,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":98,"y":48,"w":72,"h":148},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_talk_neutral_01.png":
+{
+	"frame": {"x":2,"y":154,"w":72,"h":148},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":98,"y":48,"w":72,"h":148},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_talk_neutral_02.png":
+{
+	"frame": {"x":78,"y":2,"w":72,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":98,"y":48,"w":72,"h":148},
+	"sourceSize": {"w":256,"h":256}
+},
+"default_male_talk_neutral_03.png":
+{
+	"frame": {"x":154,"y":2,"w":72,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":98,"y":48,"w":72,"h":148},
+	"sourceSize": {"w":256,"h":256}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "default_male_talk_neutral_sheet@0.5x.png",
+	"format": "RGBA8888",
+	"size": {"w":228,"h":228},
+	"scale": "0.5",
+	"smartupdate": "$TexturePacker:SmartUpdate:fda141b132912ac806bfa922462280c1:9aef3543232a93d21324b6194b0244f1:44620b529e0c033a75f345a23132dbaa$"
+}
+}

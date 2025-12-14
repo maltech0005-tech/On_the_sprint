@@ -8,8 +8,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      ITCHIO_USERNAME: urgirlkiri
-      ITCHIO_GAME: godot-itch-workflow-template
+      ITCHIO_USERNAME: Anotida1
+      ITCHIO_GAME: on-the-sprint
 
     steps:
       - name: Checkout source code
