@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c0csd1df2vksr"]
+[gd_scene load_steps=37 format=3 uid="uid://c0csd1df2vksr"]
 
 [ext_resource type="Script" uid="uid://bkbw8u6bphj61" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dbvy421butbee" path="res://assets/urban_side_view_pack_all_in_one_v1.5/characters/default_male/spritesheets/notrim/idle_expressive/default_male_idle_expressive_sheet@0.25x.png" id="2_qhqgy"]
@@ -166,7 +166,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump_down",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -180,7 +180,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump_up",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,7 +194,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"kick",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -205,7 +205,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"punch",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -222,8 +222,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jej6c"]
-size = Vector2(28, 63)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur7pv"]
+size = Vector2(32, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smehm"]
+size = Vector2(32, 73)
 
 [node name="player" type="Node2D"]
 
@@ -232,15 +235,23 @@ script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
 sprite_frames = SubResource("SpriteFrames_3v2ag")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_jej6c")
-
 [node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(1, 0)
+position = Vector2(-0.31863403, -1.0551834)
 zoom = Vector2(2, 1.5)
 limit_left = 0
-limit_bottom = 335
+limit_top = -9999965
+limit_bottom = 332
+
+[node name="jump_CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(-1, -18.5)
+shape = SubResource("RectangleShape2D_ur7pv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player"]
+polygon = PackedVector2Array(38, -2, 38, 17, 16, 9, 17, 33, -15, 33, -17, 33, -13, -29, 23, -29, 22, -6, 38, -5)
+
+[node name="idle_CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(1, -3.5)
+shape = SubResource("RectangleShape2D_smehm")
