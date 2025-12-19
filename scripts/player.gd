@@ -1,14 +1,13 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
-const JUMP_VELOCITY = -500
+const SPEED = 110.0
+const JUMP_VELOCITY = -750
 
+# collision shape variables
 @onready var animatedsprite = $AnimatedSprite2D
 @onready var jump_collision = $jump_CollisionShape2D
 @onready var kick_punch_collision = $CollisionPolygon2D
 @onready var idle_collision = $idle_CollisionShape2D
-
-
 
 # collision shape deactivation
 func deactivate_collision():
@@ -16,7 +15,6 @@ func deactivate_collision():
 	kick_punch_collision.disabled = true
 	idle_collision.disabled = true
 # player movement animation and collision shape activation
-
 
 func animated_movement():
 	
@@ -66,6 +64,6 @@ func _physics_process(delta: float) -> void:
 		animatedsprite.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		
 	animated_movement()
 	move_and_slide()
