@@ -149,7 +149,7 @@ shape = SubResource("RectangleShape2D_nb0t0")
 [node name="bullet_sprite" type="AnimatedSprite2D" parent="bullet"]
 sprite_frames = SubResource("SpriteFrames_iolyx")
 animation = &"idle"
-autoplay = "explode"
+autoplay = "idle"
 
 [node name="Timer" type="Timer" parent="bullet"]
 
@@ -165,5 +165,4 @@ shape = SubResource("CircleShape2D_ejytf")
 [connection signal="body_entered" from="detection_range" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="detection_range" to="." method="_on_detection_range_body_exited"]
 [connection signal="body_entered" from="bullet" to="." method="_on_bullet_body_entered"]
-[connection signal="timeout" from="bullet/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="receive_damage" to="." method="_on_receive_damage_body_entered"]

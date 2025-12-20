@@ -2,12 +2,22 @@ extends CharacterBody2D
 
 const SPEED = 110.0
 const JUMP_VELOCITY = -750
+var health = 100
 
 # collision shape variables
 @onready var animatedsprite = $AnimatedSprite2D
 @onready var jump_collision = $jump_CollisionShape2D
 @onready var kick_punch_collision = $CollisionPolygon2D
 @onready var idle_collision = $idle_CollisionShape2D
+
+func _ready() -> void:
+	add_to_group("player")
+
+func take_damage(amount: int):
+		health -= amount
+		print(health)
+		if health <= 0:
+			queue_free()
 
 # collision shape deactivation
 func deactivate_collision():
