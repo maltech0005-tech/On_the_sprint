@@ -1,68 +1,67 @@
 extends CharacterBody2D
 
-@onready var timer = $Timer
-@onready var detection_range = $detection_range
-@onready var bullet = $bullet
-@onready var bulllet_timer = $bullet/Timer
-@onready var sprite = $AnimatedSprite2D2
-@onready var bullet_sprite = $bullet/bullet_sprite
-@onready var receive_damage = $receive_damage
+@export var bullet_scene: PackedScene
+@export var fire_cooldown := 1.0
 
-var player = null
-var health = 20
-var projectile_speed = 120
-var is_in_range = false
-var attack_interval = 30
+@onready var detection_range: Area2D = $detection_range
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var fire_timer: Timer = $firetimer
+@onready var health_timer: Timer = $health_timer
+
+var player: Node2D
+var is_in_range := false
+var health = 3
 
 func _ready():
 	var players = get_tree().get_nodes_in_group("player")
-	if players.size()>0:
+	if players.size() > 0:
 		player = players[0]
 
-func _physics_process(delta: float) -> void:
-	if player:
-		var player_position = player.global_position
-		var direction = (player.global_position-global_position).normalized
-		bullet_sprite.play("idle")
-		if player_position.x < global_position.x:
-			sprite.flip_h=true
-			bullet_sprite.flip_h=true
-			bullet.global_position.x += projectile_speed*-1*delta
-		
-		if player_position.x > global_position.x:
-			sprite.flip_h=false
-			bullet_sprite.flip_h=false
-			bullet.global_position.x += projectile_speed*delta
-			
-		if is_in_range:
-			bullet_sprite.play("")
-			
-			
-	
-		
-func _on_bullet_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		timer.start(attack_interval)
-		body.take_damage(10)
-		bullet.global_position=global_position
-		
-	
+	fire_timer.wait_time = fire_cooldown
 
-func _on_detection_range_body_entered(body: Node2D) -> void:
+func _on_detection_range_body_entered(body):
 	if body.is_in_group("player"):
 		is_in_range = true
-	
-func _on_detection_range_body_exited(_body: Node2D) -> void:
-	if bullet.global_position.x<global_position.x - 400:
-		bullet.global_position=global_position
-	timer.stop()
+		fire_timer.start()
+
+func _on_detection_range_body_exited(body):
+	if body.is_in_group("player"):
+		is_in_range = false
+		fire_timer.stop()
+
+func _on_firetimer_timeout():
+	if not player or not is_in_range:
+		return
+	fire()
+
+func fire():
+	if bullet_scene == null:
+		return
+		
+	var bullet = bullet_scene.instantiate()
+	get_parent().add_child(bullet)
+
+	bullet.global_position = global_position
+
+	var direction = (player.global_position - global_position).normalized()
+	bullet.direction = direction
+
+	sprite.flip_h = direction.x < 0
 	
 func _on_receive_damage_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		health -= 1
-		if health >= 0:
-			queue_free()
+		if Input.is_action_pressed("punch") or Input.is_action_pressed("kick"):
+			take_damage()
 
-func _on_timer_timeout() -> void:
-	if is_in_range:
-		timer.start(attack_interval)
+func _on_receive_damage_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+	
+func take_damage():
+	health_timer.start(1)
+	
+func _on_health_timer_timeout() -> void:
+	health -= 1
+	print("health")
+	if health>=0:
+		print("died")
+		queue_free()

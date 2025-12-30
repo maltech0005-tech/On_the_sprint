@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 const SPEED = 110.0
-const JUMP_VELOCITY = -750
+const JUMP_VELOCITY = -500
 var health = 100
+var alive = true
 
 # collision shape variables
 @onready var animatedsprite = $AnimatedSprite2D
@@ -14,10 +15,10 @@ func _ready() -> void:
 	add_to_group("player")
 
 func take_damage(amount: int):
+	if health >= 0:
 		health -= amount
-		print(health)
-		if health <= 0:
-			queue_free()
+	else:
+		alive=false
 
 # collision shape deactivation
 func deactivate_collision():
@@ -52,28 +53,34 @@ func animated_movement():
 		
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# get direction of player
-	var direction := Input.get_axis("move_left", "move_right")
-	
-	# change player direction on key press
-	if direction > 0:
-		animatedsprite.flip_h = false
-	elif direction < 0:
-		animatedsprite.flip_h = true
+	if alive:
+		# Add the gravity.
 		
-	if direction:
-		velocity.x = direction * SPEED
-		animatedsprite.play("run")
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+			
+		# Handle jump
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		
+		# get direction of player
+		var direction := Input.get_axis("move_left", "move_right")
+		
+		# change player direction on key press
+		if direction > 0:
+			animatedsprite.flip_h = false
+			
+		elif direction < 0:
+			animatedsprite.flip_h = true
+		
+		if direction:
+			velocity.x = direction * SPEED
+			animatedsprite.play("run")
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		animated_movement()
+		move_and_slide()
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	animated_movement()
-	move_and_slide()
+		animatedsprite.play("die")
+		await animatedsprite.animation_finished
+		deactivate_collision()

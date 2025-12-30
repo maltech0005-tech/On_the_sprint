@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://bpbksgvgch0sg"]
+[gd_scene load_steps=13 format=3 uid="uid://bpbksgvgch0sg"]
 
 [ext_resource type="Script" uid="uid://bthwgok2ciky8" path="res://scripts/enemy_1.gd" id="1_nb0t0"]
 [ext_resource type="Texture2D" uid="uid://bwmpry3t5n47o" path="res://assets/Monster_Creatures_Fantasy(Version 1.3)/Flying eye/Attack3.png" id="1_tcmaw"]
-[ext_resource type="Texture2D" uid="uid://d0558rthbn7xa" path="res://assets/Monster_Creatures_Fantasy(Version 1.3)/Flying eye/projectile_sprite.png" id="3_n665k"]
+[ext_resource type="PackedScene" uid="uid://di3gpfcgsobq5" path="res://scenes/bullet_1.tscn" id="2_n665k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nb0t0"]
 atlas = ExtResource("1_tcmaw")
@@ -50,87 +50,18 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ejytf"]
 radius = 22.090721
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb0t0"]
-size = Vector2(655, 90)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ye30t"]
-atlas = ExtResource("3_n665k")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6f6wx"]
-atlas = ExtResource("3_n665k")
-region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mu0b7"]
-atlas = ExtResource("3_n665k")
-region = Rect2(240, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tmbj3"]
-atlas = ExtResource("3_n665k")
-region = Rect2(288, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l0xj3"]
-atlas = ExtResource("3_n665k")
-region = Rect2(336, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_btl24"]
-atlas = ExtResource("3_n665k")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iohcp"]
-atlas = ExtResource("3_n665k")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wsoav"]
-atlas = ExtResource("3_n665k")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_iolyx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ye30t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6f6wx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mu0b7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tmbj3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l0xj3")
-}],
-"loop": true,
-"name": &"explode",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_btl24")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iohcp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wsoav")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 20.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_n665k"]
+radius = 252.01785
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lowyn"]
 radius = 23.021729
 
 [node name="enemy1" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_nb0t0")
+bullet_scene = ExtResource("2_n665k")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.7066667, 1.5466666)
 sprite_frames = SubResource("SpriteFrames_a1412")
 autoplay = "default"
@@ -139,24 +70,12 @@ autoplay = "default"
 position = Vector2(10, 7)
 shape = SubResource("CircleShape2D_ejytf")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="firetimer" type="Timer" parent="."]
 
 [node name="detection_range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range"]
-position = Vector2(63.5, -14)
-shape = SubResource("RectangleShape2D_nb0t0")
-
-[node name="bullet" type="Area2D" parent="."]
-
-[node name="bullet_sprite" type="AnimatedSprite2D" parent="bullet"]
-sprite_frames = SubResource("SpriteFrames_iolyx")
-animation = &"idle"
-autoplay = "explode"
-
-[node name="Timer" type="Timer" parent="bullet"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet"]
+position = Vector2(7, 7)
 shape = SubResource("CircleShape2D_n665k")
 
 [node name="receive_damage" type="Area2D" parent="."]
@@ -165,8 +84,11 @@ shape = SubResource("CircleShape2D_n665k")
 position = Vector2(10, 7)
 shape = SubResource("CircleShape2D_lowyn")
 
+[node name="health_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="firetimer" to="." method="_on_firetimer_timeout"]
 [connection signal="body_entered" from="detection_range" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="detection_range" to="." method="_on_detection_range_body_exited"]
-[connection signal="body_entered" from="bullet" to="." method="_on_bullet_body_entered"]
-[connection signal="timeout" from="bullet/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="receive_damage" to="." method="_on_receive_damage_body_entered"]
+[connection signal="body_exited" from="receive_damage" to="." method="_on_receive_damage_body_exited"]
+[connection signal="timeout" from="health_timer" to="." method="_on_health_timer_timeout"]

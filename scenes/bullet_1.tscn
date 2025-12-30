@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://di3gpfcgsobq5"]
+
+[ext_resource type="Script" uid="uid://bwkfv8toi1a6b" path="res://scripts/bullet_1.gd" id="1_v6s6y"]
+[ext_resource type="Texture2D" uid="uid://d0558rthbn7xa" path="res://assets/Monster_Creatures_Fantasy(Version 1.3)/Flying eye/projectile_sprite.png" id="2_xw7i0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye30t"]
+atlas = ExtResource("2_xw7i0")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f6wx"]
+atlas = ExtResource("2_xw7i0")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu0b7"]
+atlas = ExtResource("2_xw7i0")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmbj3"]
+atlas = ExtResource("2_xw7i0")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0xj3"]
+atlas = ExtResource("2_xw7i0")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btl24"]
+atlas = ExtResource("2_xw7i0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iohcp"]
+atlas = ExtResource("2_xw7i0")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsoav"]
+atlas = ExtResource("2_xw7i0")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3eylq"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ye30t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f6wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu0b7")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_tmbj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0xj3")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 40.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btl24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iohcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsoav")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1njj3"]
+
+[node name="bullet1" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_v6s6y")
+
+[node name="bullet_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3eylq")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1njj3")
+
+[node name="lifetimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="lifetimer" to="." method="_on_lifetimer_timeout"]
