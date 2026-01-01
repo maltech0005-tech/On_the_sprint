@@ -2,6 +2,8 @@ extends Node2D
 
 @export var background_scene: PackedScene
 @export var enemy1: PackedScene
+@onready var timer: Timer = $Timer
+
 var player = null
 var loopnumber: int = 1
 var scenelength: int = 3024
@@ -22,6 +24,8 @@ func _ready() -> void:
 	second_bgscene.position = Vector2(scenelength, 100)
 	add_child(second_bgscene)
 	pieces.append(second_bgscene)
+	
+	spawn_enemy()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -38,3 +42,12 @@ func load_new_bg_scene():
 		pieces.pop_front()
 		var first = pieces[0]
 		first.queue_free()
+		
+func spawn_enemy():
+	timer.start(8)
+
+func _on_timer_timeout() -> void:
+	var enemy=enemy1.instantiate()
+	enemy.position=player.position+Vector2(200, 0)
+	add_child(enemy)
+	spawn_enemy()

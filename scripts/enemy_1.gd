@@ -16,8 +16,9 @@ func _ready():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-
+		
 	fire_timer.wait_time = fire_cooldown
+	
 
 func _on_detection_range_body_entered(body):
 	if body.is_in_group("player"):

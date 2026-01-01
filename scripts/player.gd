@@ -87,7 +87,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		animatedsprite.play("die")
 		await animatedsprite.animation_finished
-		get_tree().paused = not get_tree().paused
 		timer.start(0.01)
 
 func _on_timer_timeout() -> void:
