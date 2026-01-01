@@ -1,25 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctsxto3dwmkw7"]
+[gd_scene load_steps=6 format=3 uid="uid://ctsxto3dwmkw7"]
 
+[ext_resource type="Script" uid="uid://dtohb0g10r3wa" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c0csd1df2vksr" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dle6srtbbhw47" path="res://scenes/city.tscn" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://bpbksgvgch0sg" path="res://scenes/enemy1.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://di3gpfcgsobq5" path="res://scenes/bullet_1.tscn" id="4_lbhrr"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
-distance = -53.104095
+[ext_resource type="PackedScene" uid="uid://bpbksgvgch0sg" path="res://scenes/enemy1.tscn" id="3_lbhrr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 normal = Vector2(0.99999917, -0.0012438643)
 distance = -3.8654525
 
 [node name="game" type="Node2D"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(5.243408, 7.8795776)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-5.012583, 105.89592)
-shape = SubResource("WorldBoundaryShape2D_yqjtg")
+script = ExtResource("1_lnu2h")
+background_scene = ExtResource("1_yqjtg")
+enemy1 = ExtResource("3_lbhrr")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(11.243408, 10.879578)
@@ -28,27 +21,6 @@ position = Vector2(11.243408, 10.879578)
 position = Vector2(-11.143311, -10.047073)
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
-[node name="city" parent="." instance=ExtResource("1_yqjtg")]
-position = Vector2(-3, 23)
-
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
-z_index = 20
-position = Vector2(76, -89)
-
-[node name="enemies" type="Node2D" parent="."]
-
-[node name="enemy1" parent="enemies" instance=ExtResource("3_lnu2h")]
-z_index = 19
-position = Vector2(447, -27)
-
-[node name="enemy2" parent="enemies" instance=ExtResource("3_lnu2h")]
-position = Vector2(1659, -278)
-
-[node name="enemy3" parent="enemies" instance=ExtResource("3_lnu2h")]
-position = Vector2(1066, 74)
-
-[node name="enemy4" parent="enemies" instance=ExtResource("3_lnu2h")]
-position = Vector2(2468, -11)
-
-[node name="bullet1" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(-319, -156)
+z_index = 30
+position = Vector2(0, 1)

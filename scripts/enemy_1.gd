@@ -53,7 +53,7 @@ func _on_receive_damage_body_entered(body: Node2D) -> void:
 		if Input.is_action_pressed("punch") or Input.is_action_pressed("kick"):
 			take_damage()
 
-func _on_receive_damage_body_exited(body: Node2D) -> void:
+func _on_receive_damage_body_exited(_body: Node2D) -> void:
 	pass # Replace with function body.
 	
 func take_damage():
