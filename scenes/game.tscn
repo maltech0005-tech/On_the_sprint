@@ -28,15 +28,9 @@ position = Vector2(11.243408, 10.879578)
 position = Vector2(-11.143311, -10.047073)
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
-[node name="city" parent="." instance=ExtResource("1_yqjtg")]
-position = Vector2(-3, 23)
-
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 20
 position = Vector2(76, -89)
-
-[node name="city2" parent="." instance=ExtResource("1_yqjtg")]
-position = Vector2(3017, 23)
 
 [node name="enemies" type="Node2D" parent="."]
 
@@ -58,3 +52,10 @@ position = Vector2(3929, 74)
 
 [node name="bullet1" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(-319, -156)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(3024, 0)
+limit_begin = Vector2(0, -10000000)
+
+[node name="city" parent="Parallax2D" instance=ExtResource("1_yqjtg")]
+position = Vector2(-3, 23)

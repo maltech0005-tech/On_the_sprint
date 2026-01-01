@@ -10,13 +10,17 @@ var alive = true
 @onready var jump_collision = $jump_CollisionShape2D
 @onready var kick_punch_collision = $CollisionPolygon2D
 @onready var idle_collision = $idle_CollisionShape2D
+@onready var timer: Timer = $Timer
+@onready var hp: TextureProgressBar = $Camera2D/HP
 
 func _ready() -> void:
 	add_to_group("player")
+	update_life_and_resources()
 
 func take_damage(amount: int):
 	if health >= 0:
 		health -= amount
+		update_life_and_resources()
 	else:
 		alive=false
 
@@ -83,4 +87,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		animatedsprite.play("die")
 		await animatedsprite.animation_finished
-		deactivate_collision()
+		get_tree().paused = not get_tree().paused
+		timer.start(0.01)
+
+func _on_timer_timeout() -> void:
+	get_tree().reload_current_scene()
+	
+func update_life_and_resources():
+	hp.value=health
