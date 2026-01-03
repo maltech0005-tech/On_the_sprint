@@ -48,13 +48,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ejytf"]
-radius = 22.090721
+radius = 33.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n665k"]
 radius = 252.01785
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lowyn"]
-radius = 30.0
+radius = 39.051247
 
 [node name="enemy1" type="CharacterBody2D"]
 collision_mask = 2
@@ -65,6 +65,7 @@ bullet_scene = ExtResource("2_n665k")
 scale = Vector2(1.7066667, 1.5466666)
 sprite_frames = SubResource("SpriteFrames_a1412")
 autoplay = "default"
+frame_progress = 0.5744483
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(10, 7)

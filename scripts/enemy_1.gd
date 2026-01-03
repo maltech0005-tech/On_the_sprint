@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var fire_timer: Timer = $firetimer
 @onready var health_timer: Timer = $health_timer
 
+
 var player: Node2D
 var is_in_range := false
 var health = 3
