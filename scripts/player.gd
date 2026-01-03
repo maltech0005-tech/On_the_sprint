@@ -115,7 +115,3 @@ func _on_pause_pressed() -> void:
 		pause.text="pause"
 		is_play=true
 		get_tree().paused = false
-		
-func _unhandled_input(event):
-	if event == Input.is_action_pressed("pause"):
-		_on_pause_pressed()

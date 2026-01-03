@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
 @export var bullet_scene: PackedScene
 @export var fire_cooldown := 1.0
-
 @onready var detection_range: Area2D = $detection_range
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fire_timer: Timer = $firetimer

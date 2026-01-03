@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctsxto3dwmkw7"]
+[gd_scene load_steps=7 format=3 uid="uid://ctsxto3dwmkw7"]
 
 [ext_resource type="Script" uid="uid://dtohb0g10r3wa" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c0csd1df2vksr" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dle6srtbbhw47" path="res://scenes/city.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bpbksgvgch0sg" path="res://scenes/enemy1.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://iehlqcb485wj" path="res://scenes/enemy_2.tscn" id="4_iywne"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 normal = Vector2(0.99999917, -0.0012438643)
@@ -13,6 +14,7 @@ distance = -3.8654525
 script = ExtResource("1_lnu2h")
 background_scene = ExtResource("1_yqjtg")
 enemy1 = ExtResource("3_lbhrr")
+enemy2 = ExtResource("4_iywne")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(11.243408, 10.879578)
