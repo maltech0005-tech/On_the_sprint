@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 const SPEED = 110.0
-const JUMP_VELOCITY = -500
+const JUMP_VELOCITY = -550
 var health = 100
+var scores= 0 
 var alive = true
 var is_play=true
+var jumps: int =0
 
 # collision shape variables
 @onready var animatedsprite = $AnimatedSprite2D
@@ -13,7 +15,6 @@ var is_play=true
 @onready var idle_collision = $idle_CollisionShape2D
 @onready var timer: Timer = $Timer
 @onready var hp: TextureProgressBar = $Camera2D/HP
-@onready var label: Label = $Camera2D/Label
 @onready var pause: Button = $Camera2D/pause
 @onready var score: Label = $Camera2D/score
 @onready var coins: Label = $Camera2D/coins
@@ -21,7 +22,6 @@ var is_play=true
 func _ready() -> void:
 	add_to_group("player")
 	update_life_and_resources()
-	label.text="HP"
 	
 func take_damage(amount: int):
 	if health >= 0:
@@ -71,7 +71,14 @@ func _physics_process(delta: float) -> void:
 			
 		# Handle jump
 		if Input.is_action_just_pressed("jump") and is_on_floor():
+			jumps=1
 			velocity.y = JUMP_VELOCITY
+		if Input.is_action_just_pressed("jump") and not is_on_floor():
+			if jumps==2:
+				pass
+			else:
+				velocity.y = JUMP_VELOCITY
+				jumps+=1
 		
 		# get direction of player
 		var direction := Input.get_axis("move_left", "move_right")
@@ -100,8 +107,11 @@ func _on_timer_timeout() -> void:
 	
 func update_life_and_resources():
 	hp.value=health
+	score.text=str(scores)
 	
-
+func gain_score(amount):
+	scores+=amount
+	update_life_and_resources()
 
 func _on_pause_pressed() -> void:
 	if is_play:

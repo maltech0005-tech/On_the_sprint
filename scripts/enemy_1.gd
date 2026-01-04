@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fire_timer: Timer = $firetimer
 @onready var health_timer: Timer = $health_timer
+@onready var hp: TextureProgressBar = $HP
 
 
 var player: Node2D
@@ -17,7 +18,9 @@ func _ready():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-		
+	
+	hp.value=health	
+	hp.visible=false
 	fire_timer.wait_time = fire_cooldown
 	
 func _physics_process(delta: float) -> void:
@@ -56,16 +59,19 @@ func fire():
 	
 func _on_receive_damage_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		hp.visible=true
 		if Input.is_action_pressed("punch") or Input.is_action_pressed("kick"):
 			take_damage()
 
 func _on_receive_damage_body_exited(_body: Node2D) -> void:
-	pass # Replace with function body.
+	hp.visible=false
 	
 func take_damage():
 	health_timer.start(1)
 	
 func _on_health_timer_timeout() -> void:
 	health -= 1
-	if health>=0:
+	hp.value=health
+	player.gain_score(1)
+	if health<=0:
 		queue_free()
