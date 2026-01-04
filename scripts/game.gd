@@ -3,6 +3,8 @@ extends Node2D
 @export var background_scene: PackedScene
 @export var enemy1: PackedScene
 @export var enemy2: PackedScene
+@export var enemy3: PackedScene
+@export var enemy4: PackedScene
 @onready var timer: Timer = $Timer
 
 var player = null
@@ -51,8 +53,11 @@ func _on_timer_timeout() -> void:
 	var enemies=[]
 	var enemy_1=enemy1.instantiate()
 	var enemy_2=enemy2.instantiate()
+	var enemy_3=enemy3.instantiate()
+	var enemy_4=enemy4.instantiate()
 	enemies.append(enemy_1)
 	enemies.append(enemy_2)
+	enemies.append(enemy_3)
 	var enemy=enemies.pick_random()
 	enemy.position=player.position+Vector2(200, 0)
 	add_child(enemy)

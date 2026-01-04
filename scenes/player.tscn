@@ -333,7 +333,7 @@ shape = SubResource("RectangleShape2D_smehm")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-20, 2)
-zoom = Vector2(2, 1.5)
+zoom = Vector2(2, 2)
 process_callback = 0
 limit_left = -290
 limit_top = -9999980
@@ -342,10 +342,10 @@ limit_smoothed = true
 editor_draw_drag_margin = true
 
 [node name="HP" type="TextureProgressBar" parent="player/Camera2D"]
-offset_left = -257.4836
-offset_top = -211.19907
-offset_right = -57.483612
-offset_bottom = -193.19907
+offset_left = -257.48364
+offset_top = -159.19907
+offset_right = -57.483643
+offset_bottom = -141.19907
 rounded = true
 texture_under = SubResource("GradientTexture2D_d2wvv")
 texture_progress = SubResource("GradientTexture2D_jej6c")
@@ -353,38 +353,37 @@ texture_progress = SubResource("GradientTexture2D_jej6c")
 [node name="pause" type="Button" parent="player/Camera2D"]
 process_mode = 3
 offset_left = -23.0
-offset_top = -213.0
+offset_top = -161.0
 offset_right = 58.0
-offset_bottom = -182.0
+offset_bottom = -130.0
 shortcut = SubResource("Shortcut_3v2ag")
 text = "pause"
 icon = ExtResource("11_d2wvv")
 expand_icon = true
 
-[node name="score" type="Label" parent="player/Camera2D"]
-offset_left = 201.0
-offset_top = -211.0
-offset_right = 253.0
-offset_bottom = -188.0
+[node name="distance" type="Label" parent="player/Camera2D"]
+offset_left = 210.0
+offset_top = -159.0
+offset_right = 263.0
+offset_bottom = -136.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_y4r1p")
-text = "Score: "
 
 [node name="coins" type="Label" parent="player/Camera2D"]
 offset_left = 126.0
-offset_top = -211.0
+offset_top = -159.0
 offset_right = 171.0
-offset_bottom = -188.0
+offset_bottom = -136.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_d2wvv")
 
 [node name="life" type="Sprite2D" parent="player/Camera2D"]
-position = Vector2(-272, -199.99998)
+position = Vector2(-272, -148)
 scale = Vector2(1.8750043, 1.9339846)
 texture = ExtResource("12_jej6c")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="coin" type="Sprite2D" parent="player/Camera2D"]
-position = Vector2(112, -200.99998)
+position = Vector2(112, -148.99998)
 scale = Vector2(1.8750043, 1.9339846)
 texture = ExtResource("13_f1ej7")
 region_enabled = true

@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="On THE SPRINT"
+config/name="ON THE SPRINT"
 run/main_scene="uid://bjcarjwcfuqhq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ck8gw8mxgqjqd"
+
+[autoload]
+
+Savemanager="*res://scripts/savemanager.gd"
 
 [display]
 

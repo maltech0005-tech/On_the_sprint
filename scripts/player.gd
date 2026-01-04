@@ -3,7 +3,10 @@ extends CharacterBody2D
 const SPEED = 110.0
 const JUMP_VELOCITY = -550
 var health = 100
-var scores= 0 
+var distance_count: float = 0.0
+const unit_distance = 600.0
+var unit_distance_amount=1.0 
+var coin_count : int
 var alive = true
 var is_play=true
 var jumps: int =0
@@ -16,8 +19,8 @@ var jumps: int =0
 @onready var timer: Timer = $Timer
 @onready var hp: TextureProgressBar = $Camera2D/HP
 @onready var pause: Button = $Camera2D/pause
-@onready var score: Label = $Camera2D/score
 @onready var coins: Label = $Camera2D/coins
+@onready var distance: Label = $Camera2D/distance
 
 func _ready() -> void:
 	add_to_group("player")
@@ -64,8 +67,10 @@ func animated_movement():
 
 func _physics_process(delta: float) -> void:
 	if alive:
-		# Add the gravity.
 		
+		if position.x>unit_distance*unit_distance_amount:
+			count_distance()
+		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 			
@@ -107,10 +112,16 @@ func _on_timer_timeout() -> void:
 	
 func update_life_and_resources():
 	hp.value=health
-	score.text=str(scores)
+	distance.text= str(distance_count) +"km"
+	coins.text=str(coin_count)
 	
-func gain_score(amount):
-	scores+=amount
+func count_distance():
+	distance_count += 0.1
+	unit_distance_amount+=1
+	update_life_and_resources()
+	
+func gain_coin(amount):
+	coin_count+=amount
 	update_life_and_resources()
 
 func _on_pause_pressed() -> void:

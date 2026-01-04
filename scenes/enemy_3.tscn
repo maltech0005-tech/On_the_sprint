@@ -1,0 +1,136 @@
+[gd_scene load_steps=18 format=3 uid="uid://ki55dae68snt"]
+
+[ext_resource type="Script" uid="uid://byfc6qetkp6dd" path="res://scripts/enemy_3.gd" id="1_djy1j"]
+[ext_resource type="Texture2D" uid="uid://d52p2vol6t7u" path="res://assets/Monster_Creatures_Fantasy(Version 1.3)/Skeleton/Attack3.png" id="1_pntu1"]
+[ext_resource type="PackedScene" uid="uid://dwv1ud0wy000m" path="res://scenes/bullet_3.tscn" id="2_oib00"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djy1j"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oib00"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj3uc"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nfes"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ipwp"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1mu1"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a1412"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djy1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oib00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj3uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nfes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ipwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1mu1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejytf"]
+radius = 39.029778
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n665k"]
+radius = 252.01785
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lowyn"]
+radius = 50.039986
+
+[sub_resource type="Gradient" id="Gradient_djy1j"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.9607843, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n665k"]
+gradient = SubResource("Gradient_djy1j")
+width = 60
+height = 6
+use_hdr = true
+fill_to = Vector2(200, 18)
+
+[sub_resource type="Gradient" id="Gradient_oib00"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.4509804, 0.99019605, 1)
+colors = PackedColorArray(0.5335002, 0, 0.97, 1, 0.96862745, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lowyn"]
+gradient = SubResource("Gradient_oib00")
+width = 60
+height = 6
+use_hdr = true
+fill_from = Vector2(5, 0)
+fill_to = Vector2(200, 18)
+
+[node name="enemy3" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_djy1j")
+bullet_scene = ExtResource("2_oib00")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.7066667, 1.5466666)
+sprite_frames = SubResource("SpriteFrames_a1412")
+autoplay = "default"
+frame_progress = 0.5744483
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.4756622)
+shape = SubResource("CircleShape2D_ejytf")
+
+[node name="firetimer" type="Timer" parent="."]
+
+[node name="detection_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range"]
+position = Vector2(7, 7)
+shape = SubResource("CircleShape2D_n665k")
+
+[node name="receive_damage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="receive_damage"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_lowyn")
+
+[node name="health_timer" type="Timer" parent="."]
+
+[node name="HP" type="TextureProgressBar" parent="."]
+offset_left = -19.0
+offset_top = -24.0
+offset_right = 41.0
+offset_bottom = -18.0
+max_value = 3.0
+rounded = true
+texture_under = SubResource("GradientTexture2D_n665k")
+texture_progress = SubResource("GradientTexture2D_lowyn")
+
+[connection signal="timeout" from="firetimer" to="." method="_on_firetimer_timeout"]
+[connection signal="body_entered" from="detection_range" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="detection_range" to="." method="_on_detection_range_body_exited"]
+[connection signal="body_entered" from="receive_damage" to="." method="_on_receive_damage_body_entered"]
+[connection signal="body_exited" from="receive_damage" to="." method="_on_receive_damage_body_exited"]
+[connection signal="timeout" from="health_timer" to="." method="_on_health_timer_timeout"]
