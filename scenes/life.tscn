@@ -1,6 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6t2qohy8xqso"]
+[gd_scene load_steps=19 format=3 uid="uid://c6t2qohy8xqso"]
 
+[ext_resource type="Script" uid="uid://bthpgll6kbc0x" path="res://scripts/life.gd" id="1_jotl1"]
 [ext_resource type="Texture2D" uid="uid://bgwjb3qn71uay" path="res://assets/HeartSpinAnimation.png" id="1_tf86k"]
+[ext_resource type="Script" uid="uid://c5tn1stb3dkb5" path="res://scripts/life_gravity.gd" id="3_nva4y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhvcv"]
 atlas = ExtResource("1_tf86k")
@@ -95,11 +97,18 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1njj3"]
+radius = 17.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13s43"]
+size = Vector2(2, 21)
 
 [node name="life" type="Area2D"]
 collision_mask = 2
+script = ExtResource("1_jotl1")
 
 [node name="life_sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.16869354, -0.19950867)
+scale = Vector2(2.1667933, 1.9812192)
 sprite_frames = SubResource("SpriteFrames_3eylq")
 animation = &"idle"
 autoplay = "idle"
@@ -109,6 +118,13 @@ frame_progress = 0.60647774
 shape = SubResource("CircleShape2D_1njj3")
 
 [node name="lifetimer" type="Timer" parent="."]
+
+[node name="life_gravity" type="CharacterBody2D" parent="."]
+script = ExtResource("3_nva4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="life_gravity"]
+position = Vector2(0, 25.5)
+shape = SubResource("RectangleShape2D_13s43")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="lifetimer" to="." method="_on_lifetimer_timeout"]

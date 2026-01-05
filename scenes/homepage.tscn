@@ -1,8 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjcarjwcfuqhq"]
+[gd_scene load_steps=13 format=3 uid="uid://bjcarjwcfuqhq"]
 
 [ext_resource type="Script" uid="uid://5n76jfmvxcdk" path="res://scripts/homepage.gd" id="1_goorp"]
 [ext_resource type="Texture2D" uid="uid://cgyhnrg2dx20e" path="res://assets/cover.png" id="1_vw1eu"]
 [ext_resource type="AudioStream" uid="uid://ciu8baxnpvnt1" path="res://assets/music/home.mp3" id="3_mnr3g"]
+[ext_resource type="Texture2D" uid="uid://dbljogle4h5ee" path="res://assets/Play Square Button.png" id="3_vpfph"]
+[ext_resource type="Texture2D" uid="uid://ci3hlbkrq74f3" path="res://assets/Questionmark Square Button.png" id="4_7mfhq"]
+[ext_resource type="Texture2D" uid="uid://ctouu3dcddral" path="res://assets/Settings Square Button.png" id="5_wx083"]
+[ext_resource type="Texture2D" uid="uid://bl1i6qk65cab" path="res://assets/X col_Square Button.png" id="6_flo1l"]
+[ext_resource type="Texture2D" uid="uid://3dmep2wbk0wa" path="res://assets/Audio Square Button.png" id="7_wjdee"]
+[ext_resource type="Texture2D" uid="uid://btsa50jbuffdq" path="res://assets/Music Square Button.png" id="8_yhjr5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goorp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -40,27 +46,37 @@ theme_override_constants/separation = 13
 layout_mode = 2
 theme_override_font_sizes/font_size = 54
 text = "Play"
+icon = ExtResource("3_vpfph")
+icon_alignment = 2
+expand_icon = true
 
 [node name="help" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 54
 text = "Help"
+icon = ExtResource("4_7mfhq")
+icon_alignment = 2
+expand_icon = true
 
 [node name="settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 54
 text = "Settings"
+icon = ExtResource("5_wx083")
+icon_alignment = 2
+expand_icon = true
 
 [node name="help_tab" type="Node2D" parent="."]
 visible = false
 
 [node name="exit_help" type="Button" parent="help_tab"]
-offset_left = 861.0459
-offset_top = 151.98325
-offset_right = 931.0459
-offset_bottom = 222.98325
+offset_left = 862.0459
+offset_top = 146.98325
+offset_right = 932.0459
+offset_bottom = 217.98325
 theme_override_font_sizes/font_size = 45
-text = "❌"
+icon = ExtResource("6_flo1l")
+expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="help_tab"]
 offset_left = 263.0
@@ -95,12 +111,13 @@ visible = false
 position = Vector2(1, -3)
 
 [node name="exit_settings" type="Button" parent="settings_tab"]
-offset_left = 861.0459
-offset_top = 151.98325
-offset_right = 931.0459
-offset_bottom = 222.98325
+offset_left = 859.0459
+offset_top = 144.98325
+offset_right = 929.0459
+offset_bottom = 215.98325
 theme_override_font_sizes/font_size = 45
-text = "❌"
+icon = ExtResource("6_flo1l")
+expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="settings_tab"]
 texture_filter = 1
@@ -119,25 +136,29 @@ text = "Player Name
 
 Audio
 
-Sound Effects
+Music
 
                                                                  "
 
 [node name="audio" type="CheckButton" parent="settings_tab"]
 texture_filter = 1
-offset_left = 755.0
-offset_top = 352.0
-offset_right = 799.0
-offset_bottom = 376.0
+offset_left = 684.00006
+offset_top = 342.00003
+offset_right = 758.00006
+offset_bottom = 372.80002
 scale = Vector2(2.5, 2.5)
+icon = ExtResource("7_wjdee")
+expand_icon = true
 
 [node name="SFX" type="CheckButton" parent="settings_tab"]
 texture_filter = 1
-offset_left = 758.0
-offset_top = 447.0
-offset_right = 802.0
-offset_bottom = 471.0
+offset_left = 685.00006
+offset_top = 428.0
+offset_right = 759.00006
+offset_bottom = 461.19998
 scale = Vector2(2.5, 2.5)
+icon = ExtResource("8_yhjr5")
+expand_icon = true
 
 [node name="p_name" type="TextEdit" parent="settings_tab"]
 offset_left = 609.0

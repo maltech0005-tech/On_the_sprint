@@ -8,11 +8,13 @@ extends Node2D
 @export var coins: PackedScene
 @export var life: PackedScene
 @onready var timer: Timer = $Timer
+@onready var life_timer: Timer = $life_timer
 
 var player = null
 var coin_icon = null
 var loopnumber: int = 1
 var scenelength: int = 3024
+var lifenumber:int =0
 var newscene = false
 var pieces = []
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +41,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if (player.global_position.x+500) > scenelength*loopnumber:
 		load_new_bg_scene()
+	if player.global_position.x > scenelength*0.25*lifenumber:
+		spawn_life()
+	spawn_life()
 		
 func load_new_bg_scene():
 	var new_piece = background_scene.instantiate()
@@ -53,6 +58,12 @@ func load_new_bg_scene():
 		
 func spawn_enemy():
 	timer.start(8)
+
+func spawn_life():
+	var add_life = life.instantiate()
+	add_life.position = Vector2(scenelength*0.25*(lifenumber+1), 300)
+	add_child(add_life)
+	lifenumber+=1
 	
 func release_coin():
 	var coin = coins.instantiate()
@@ -63,6 +74,7 @@ func release_coin():
 	add_child(coin)
 	var direction = (coin_icon.global_position - coin.position).normalized()
 	coin.direction=direction
+	coin.coin_icon_pos=coin_icon.global_position
 
 func _on_timer_timeout() -> void:
 	var enemies=[]

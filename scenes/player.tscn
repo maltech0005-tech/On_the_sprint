@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://c0csd1df2vksr"]
+[gd_scene load_steps=63 format=3 uid="uid://c0csd1df2vksr"]
 
 [ext_resource type="Script" uid="uid://bkbw8u6bphj61" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dbvy421butbee" path="res://assets/urban_side_view_pack_all_in_one_v1.5/characters/default_male/spritesheets/notrim/idle_expressive/default_male_idle_expressive_sheet@0.25x.png" id="2_qhqgy"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cdcs52qdqejwk" path="res://assets/urban_side_view_pack_all_in_one_v1.5/characters/default_male/spritesheets/notrim/punch_mid_straight/default_male_punch_mid_straight_sheet@0.25x.png" id="7_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://c4fj3ysro2vwr" path="res://assets/Pause Square Button.png" id="11_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://bgwjb3qn71uay" path="res://assets/HeartSpinAnimation.png" id="12_jej6c"]
+[ext_resource type="Script" uid="uid://dlm3nr6h2i1mu" path="res://scripts/area_2d.gd" id="13_60mlk"]
 [ext_resource type="Texture2D" uid="uid://b1bwk7h0nscnj" path="res://assets/CoinSpinAnimation.png" id="13_f1ej7"]
 [ext_resource type="Script" uid="uid://bxtd3gtagjsf0" path="res://scripts/coin_icon.gd" id="14_f1ej7"]
 [ext_resource type="AudioStream" uid="uid://b8kvtse6ctqd0" path="res://assets/music/gameloop.mp3" id="15_oprun"]
@@ -152,7 +153,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"die",
-"speed": 4.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -309,6 +310,9 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2wvv"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i4ail"]
+radius = 11.744694
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_oprun"]
 radius = 13.316872
 
@@ -391,6 +395,12 @@ scale = Vector2(1.8750043, 1.9339846)
 texture = ExtResource("12_jej6c")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="player/Camera2D/life"]
+script = ExtResource("13_60mlk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Camera2D/life/Area2D"]
+shape = SubResource("CircleShape2D_i4ail")
 
 [node name="coin" type="Sprite2D" parent="player/Camera2D"]
 position = Vector2(112, -148.99998)

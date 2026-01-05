@@ -131,6 +131,7 @@ func count_distance():
 	
 func gain_coin(amount):
 	coin_count+=amount
+	update_life_and_resources()
 	coin_delay.start(0.5)
 
 func _on_pause_pressed() -> void:
@@ -148,19 +149,17 @@ func _on_pause_pressed() -> void:
 		is_play=true
 		get_tree().paused = false
 
-func _on_coin_icon_body_entered(body: Node2D) -> void:
-	if body.is_in_group("coins"):
-		gain_coin(1)
-
 func _on_timer_2_timeout() -> void:
 	update_life_and_resources()
 
 func _on_quite_pressed() -> void:
+	_on_pause_pressed()
 	get_tree().change_scene_to_file("res://scenes/homepage.tscn")
 
 func _on_restart_pressed() -> void:
+	_on_pause_pressed()
 	get_tree().reload_current_scene()
-
+	
 
 func _on_resurrect_pressed() -> void:
 	health=100

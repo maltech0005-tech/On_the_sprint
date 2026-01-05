@@ -4,6 +4,10 @@ extends Area2D
 var direction: Vector2 = Vector2.ZERO
 var added := false
 var player = null
+var coin_icon_pos: Vector2 = Vector2.ZERO
+
+@onready var coin_received: AudioStreamPlayer2D = $coin_received
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("coins")
@@ -15,10 +19,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if added:
 		return
-	rotation = direction.angle()
 	position += direction * speed * delta
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("coin_icon"):
-		player.gain_coins(1)
+	if position>coin_icon_pos:
+		added = true
+		player.gain_coin(1)
+		coin_received.play()
+		await coin_received.finished
 		queue_free()

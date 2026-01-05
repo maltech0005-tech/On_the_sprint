@@ -42,4 +42,6 @@ position = Vector2(0, 1)
 stream = ExtResource("10_vtaks")
 parameters/looping = true
 
+[node name="life_timer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

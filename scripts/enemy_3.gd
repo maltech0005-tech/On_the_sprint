@@ -76,6 +76,5 @@ func _on_health_timer_timeout() -> void:
 	health -= 1
 	hp.value=health
 	game.release_coin()
-	player.gain_coin(1)
 	if health<=0:
 		queue_free()
