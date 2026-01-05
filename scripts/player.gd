@@ -21,11 +21,17 @@ var jumps: int =0
 @onready var pause: Button = $Camera2D/pause
 @onready var coins: Label = $Camera2D/coins
 @onready var distance: Label = $Camera2D/distance
+@onready var coin_icon: Area2D = $Camera2D/coin/coin_icon
+@onready var music: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var coin_delay: Timer = $Timer2
+@onready var menu: VBoxContainer = $pause_menu/menu
+@onready var resurrect: Button = $pause_menu/menu/resurrect
 
 func _ready() -> void:
 	add_to_group("player")
+	music.play()
 	update_life_and_resources()
-	
+
 func take_damage(amount: int):
 	if health >= 0:
 		health -= amount
@@ -67,7 +73,7 @@ func animated_movement():
 
 func _physics_process(delta: float) -> void:
 	if alive:
-		
+		resurrect.visible=false
 		if position.x>unit_distance*unit_distance_amount:
 			count_distance()
 		# Add the gravity.
@@ -108,7 +114,10 @@ func _physics_process(delta: float) -> void:
 		timer.start(0.01)
 
 func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+	menu.visible=true
+	resurrect.visible=true
+	_on_pause_pressed()
+	
 	
 func update_life_and_resources():
 	hp.value=health
@@ -122,17 +131,39 @@ func count_distance():
 	
 func gain_coin(amount):
 	coin_count+=amount
-	update_life_and_resources()
+	coin_delay.start(0.5)
 
 func _on_pause_pressed() -> void:
 	if is_play:
 		pause.icon=load("res://assets/Play Square Button.png")
 		pause.text="play"
+		menu.visible=true
 		is_play=false
 		get_tree().paused = true
 		
 	else:
 		pause.icon=load("res://assets/Pause Square Button.png")
 		pause.text="pause"
+		menu.visible=false
 		is_play=true
 		get_tree().paused = false
+
+func _on_coin_icon_body_entered(body: Node2D) -> void:
+	if body.is_in_group("coins"):
+		gain_coin(1)
+
+func _on_timer_2_timeout() -> void:
+	update_life_and_resources()
+
+func _on_quite_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/homepage.tscn")
+
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()
+
+
+func _on_resurrect_pressed() -> void:
+	health=100
+	update_life_and_resources()
+	alive=true
+	_on_pause_pressed()

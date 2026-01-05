@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctsxto3dwmkw7"]
+[gd_scene load_steps=12 format=3 uid="uid://ctsxto3dwmkw7"]
 
 [ext_resource type="Script" uid="uid://dtohb0g10r3wa" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c0csd1df2vksr" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bpbksgvgch0sg" path="res://scenes/enemy1.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://iehlqcb485wj" path="res://scenes/enemy_2.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://ki55dae68snt" path="res://scenes/enemy_3.tscn" id="5_p57ef"]
+[ext_resource type="PackedScene" uid="uid://cl41u0vtxtxcy" path="res://scenes/coin.tscn" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://buyx0seaqhkap" path="res://scenes/enemy_4.tscn" id="6_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://c6t2qohy8xqso" path="res://scenes/life.tscn" id="7_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://b8kvtse6ctqd0" path="res://assets/music/gameloop.mp3" id="10_vtaks"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 normal = Vector2(0.99999917, -0.0012438643)
@@ -19,6 +22,8 @@ enemy1 = ExtResource("3_lbhrr")
 enemy2 = ExtResource("4_iywne")
 enemy3 = ExtResource("5_p57ef")
 enemy4 = ExtResource("6_u5sy4")
+coins = ExtResource("6_gee14")
+life = ExtResource("7_0tnpc")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(11.243408, 10.879578)
@@ -32,5 +37,9 @@ z_index = 30
 position = Vector2(0, 1)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_vtaks")
+parameters/looping = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

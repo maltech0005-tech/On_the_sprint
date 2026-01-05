@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjcarjwcfuqhq"]
+[gd_scene load_steps=7 format=3 uid="uid://bjcarjwcfuqhq"]
 
 [ext_resource type="Script" uid="uid://5n76jfmvxcdk" path="res://scripts/homepage.gd" id="1_goorp"]
 [ext_resource type="Texture2D" uid="uid://cgyhnrg2dx20e" path="res://assets/cover.png" id="1_vw1eu"]
+[ext_resource type="AudioStream" uid="uid://ciu8baxnpvnt1" path="res://assets/music/home.mp3" id="3_mnr3g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goorp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -20,6 +21,7 @@ border_color = Color(0.09366938, 0.09366939, 0.09366929, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_goorp"]
 
 [node name="homepage" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_goorp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -158,8 +160,13 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_goorp")
 text = "Store🏤"
 flat = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mnr3g")
+parameters/looping = true
+
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="help_tab/exit_help" to="." method="_on_exit_help_pressed"]
 [connection signal="pressed" from="settings_tab/exit_settings" to="." method="_on_exit_settings_pressed"]
+[connection signal="text_changed" from="settings_tab/p_name" to="." method="_on_p_name_text_changed"]

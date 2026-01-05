@@ -5,19 +5,24 @@ extends Node2D
 @export var enemy2: PackedScene
 @export var enemy3: PackedScene
 @export var enemy4: PackedScene
+@export var coins: PackedScene
+@export var life: PackedScene
 @onready var timer: Timer = $Timer
 
 var player = null
+var coin_icon = null
 var loopnumber: int = 1
 var scenelength: int = 3024
 var newscene = false
 var pieces = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("game")
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-
+	coin_icon = get_tree().get_first_node_in_group("coin_icon")
+	
 	var first_bgscene = background_scene.instantiate()
 	first_bgscene.position = Vector2(0, 100)
 	add_child(first_bgscene)
@@ -48,6 +53,16 @@ func load_new_bg_scene():
 		
 func spawn_enemy():
 	timer.start(8)
+	
+func release_coin():
+	var coin = coins.instantiate()
+	if player.animatedsprite.flip_h==true:
+		coin.position = player.position-Vector2(10, 30)
+	else:
+		coin.position = player.position+Vector2(10, 30)
+	add_child(coin)
+	var direction = (coin_icon.global_position - coin.position).normalized()
+	coin.direction=direction
 
 func _on_timer_timeout() -> void:
 	var enemies=[]
@@ -58,6 +73,7 @@ func _on_timer_timeout() -> void:
 	enemies.append(enemy_1)
 	enemies.append(enemy_2)
 	enemies.append(enemy_3)
+	enemies.append(enemy_4)
 	var enemy=enemies.pick_random()
 	enemy.position=player.position+Vector2(200, 0)
 	add_child(enemy)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c0csd1df2vksr"]
+[gd_scene load_steps=61 format=3 uid="uid://c0csd1df2vksr"]
 
 [ext_resource type="Script" uid="uid://bkbw8u6bphj61" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dbvy421butbee" path="res://assets/urban_side_view_pack_all_in_one_v1.5/characters/default_male/spritesheets/notrim/idle_expressive/default_male_idle_expressive_sheet@0.25x.png" id="2_qhqgy"]
@@ -13,6 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://c4fj3ysro2vwr" path="res://assets/Pause Square Button.png" id="11_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://bgwjb3qn71uay" path="res://assets/HeartSpinAnimation.png" id="12_jej6c"]
 [ext_resource type="Texture2D" uid="uid://b1bwk7h0nscnj" path="res://assets/CoinSpinAnimation.png" id="13_f1ej7"]
+[ext_resource type="Script" uid="uid://bxtd3gtagjsf0" path="res://scripts/coin_icon.gd" id="14_f1ej7"]
+[ext_resource type="AudioStream" uid="uid://b8kvtse6ctqd0" path="res://assets/music/gameloop.mp3" id="15_oprun"]
+[ext_resource type="Texture2D" uid="uid://bo614d5menpby" path="res://assets/DiamondSpinAnim18.png" id="16_fulsm"]
+[ext_resource type="Texture2D" uid="uid://dc46recsc1kvd" path="res://assets/Return Square Button.png" id="17_4r5pv"]
+[ext_resource type="Texture2D" uid="uid://du8wvjgdvjg1p" path="res://assets/Back Square Button.png" id="18_60mlk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
 atlas = ExtResource("2_y4r1p")
@@ -304,6 +309,11 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2wvv"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oprun"]
+radius = 13.316872
+
+[sub_resource type="Theme" id="Theme_fulsm"]
+
 [node name="player" type="Node2D"]
 
 [node name="player" type="CharacterBody2D" parent="."]
@@ -389,8 +399,60 @@ texture = ExtResource("13_f1ej7")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
+[node name="coin_icon" type="Area2D" parent="player/Camera2D/coin"]
+script = ExtResource("14_f1ej7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Camera2D/coin/coin_icon"]
+shape = SubResource("CircleShape2D_oprun")
+
 [node name="Timer" type="Timer" parent="player"]
 one_shot = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="player"]
+position = Vector2(-317, 0)
+stream = ExtResource("15_oprun")
+parameters/looping = true
+
+[node name="Timer2" type="Timer" parent="player"]
+
+[node name="pause_menu" type="Node2D" parent="player"]
+position = Vector2(-90.02765, -58.98741)
+
+[node name="menu" type="VBoxContainer" parent="player/pause_menu"]
+process_mode = 3
+visible = false
+offset_left = -0.82644653
+offset_top = -0.82644653
+offset_right = 174.17355
+offset_bottom = 100.17355
+theme = SubResource("Theme_fulsm")
+
+[node name="resurrect" type="Button" parent="player/pause_menu/menu"]
+visible = false
+layout_mode = 2
+text = "      RESURRECT    1"
+icon = ExtResource("16_fulsm")
+icon_alignment = 2
+expand_icon = true
+
+[node name="restart" type="Button" parent="player/pause_menu/menu"]
+layout_mode = 2
+text = "RESTART"
+icon = ExtResource("17_4r5pv")
+icon_alignment = 2
+expand_icon = true
+
+[node name="quite" type="Button" parent="player/pause_menu/menu"]
+layout_mode = 2
+text = "QUIT"
+icon = ExtResource("18_60mlk")
+icon_alignment = 2
+expand_icon = true
+
 [connection signal="pressed" from="player/Camera2D/pause" to="player" method="_on_pause_pressed"]
+[connection signal="body_entered" from="player/Camera2D/coin/coin_icon" to="player/Camera2D/coin/coin_icon" method="_on_coin_icon_body_entered"]
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
+[connection signal="timeout" from="player/Timer2" to="player" method="_on_timer_2_timeout"]
+[connection signal="pressed" from="player/pause_menu/menu/resurrect" to="player" method="_on_resurrect_pressed"]
+[connection signal="pressed" from="player/pause_menu/menu/restart" to="player" method="_on_restart_pressed"]
+[connection signal="pressed" from="player/pause_menu/menu/quite" to="player" method="_on_quite_pressed"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6iitj0dcybf3"]
+
+[ext_resource type="Texture2D" uid="uid://tk1xrnalg06b" path="res://assets/blackhole_spritesheet.png" id="1_7hwkn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ybim"]
+atlas = ExtResource("1_7hwkn")
+region = Rect2(0, 78, 219, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqeto"]
+atlas = ExtResource("1_7hwkn")
+region = Rect2(219, 78, 219, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vjgn"]
+atlas = ExtResource("1_7hwkn")
+region = Rect2(0, 234, 219, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20o7d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ybim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqeto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vjgn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdqe3"]
+
+[node name="blackhole_attack" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(570.0001, 359)
+scale = Vector2(5.063926, 9.2)
+sprite_frames = SubResource("SpriteFrames_20o7d")
+frame_progress = 0.63440573
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kdqe3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

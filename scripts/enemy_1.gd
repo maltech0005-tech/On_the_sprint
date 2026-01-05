@@ -13,11 +13,14 @@ extends CharacterBody2D
 var player: Node2D
 var is_in_range := false
 var health = 3
+var game = null
+var attacked = false
 
 func _ready():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
+	game = get_tree().get_first_node_in_group("game")
 	
 	hp.value=health	
 	hp.visible=false
@@ -39,7 +42,7 @@ func _on_detection_range_body_exited(body):
 		fire_timer.stop()
 
 func _on_firetimer_timeout():
-	if not player or not is_in_range:
+	if not player or not is_in_range or attacked:
 		return
 	fire()
 
@@ -61,10 +64,12 @@ func _on_receive_damage_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		hp.visible=true
 		if Input.is_action_pressed("punch") or Input.is_action_pressed("kick"):
+			attacked=true
 			take_damage()
 
 func _on_receive_damage_body_exited(_body: Node2D) -> void:
 	hp.visible=false
+	attacked=false
 	
 func take_damage():
 	health_timer.start(1)
@@ -72,6 +77,7 @@ func take_damage():
 func _on_health_timer_timeout() -> void:
 	health -= 1
 	hp.value=health
+	game.release_coin()
 	player.gain_coin(1)
 	if health<=0:
 		queue_free()

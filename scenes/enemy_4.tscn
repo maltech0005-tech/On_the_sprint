@@ -1,64 +1,63 @@
-[gd_scene load_steps=25 format=3 uid="uid://buyx0seaqhkap"]
+[gd_scene load_steps=24 format=3 uid="uid://buyx0seaqhkap"]
 
 [ext_resource type="Script" uid="uid://doltiwxgvkdvg" path="res://scripts/enemy_4.gd" id="1_0cinm"]
 [ext_resource type="PackedScene" uid="uid://b8sel28s0s3ep" path="res://scenes/bullet_4.tscn" id="2_lkpdo"]
 [ext_resource type="Texture2D" uid="uid://b37i22bsosan7" path="res://assets/Monster_Creatures_Fantasy(Version 1.3)/Goblin/Attack3.png" id="3_lkpdo"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkpdo"]
+atlas = ExtResource("3_lkpdo")
+region = Rect2(0, 0, 150, 150)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur2lb"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(0, 0, 138, 150)
+region = Rect2(150, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50ooa"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(138, 0, 138, 150)
+region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eob20"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(276, 0, 138, 150)
+region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ou0w7"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(414, 0, 138, 150)
+region = Rect2(600, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdq1e"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(552, 0, 138, 150)
+region = Rect2(750, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qy6ml"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(690, 0, 138, 150)
+region = Rect2(900, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahxrn"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(828, 0, 138, 150)
+region = Rect2(1050, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3spnt"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(966, 0, 138, 150)
+region = Rect2(1200, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x57ml"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(1104, 0, 138, 150)
+region = Rect2(1350, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jckb5"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(1242, 0, 138, 150)
+region = Rect2(1500, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_08ru6"]
 atlas = ExtResource("3_lkpdo")
-region = Rect2(1380, 0, 138, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_afgjn"]
-atlas = ExtResource("3_lkpdo")
-region = Rect2(1518, 0, 138, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_32ol0"]
-atlas = ExtResource("3_lkpdo")
-region = Rect2(1656, 0, 138, 150)
+region = Rect2(1650, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a1412"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkpdo")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ur2lb")
 }, {
@@ -91,12 +90,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_08ru6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_afgjn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_32ol0")
 }],
 "loop": true,
 "name": &"default",
@@ -142,13 +135,14 @@ script = ExtResource("1_0cinm")
 bullet_scene = ExtResource("2_lkpdo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.63726807, -15.264793)
 scale = Vector2(1.7066667, 1.5466666)
 sprite_frames = SubResource("SpriteFrames_a1412")
 autoplay = "default"
-frame_progress = 0.5744483
+frame_progress = 0.9727743
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, 7)
+position = Vector2(-0.63726807, -1.2450371)
 shape = SubResource("CircleShape2D_ejytf")
 
 [node name="firetimer" type="Timer" parent="."]
@@ -162,7 +156,7 @@ shape = SubResource("CircleShape2D_n665k")
 [node name="receive_damage" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="receive_damage"]
-position = Vector2(10, 7)
+position = Vector2(-0.63726807, -1.2450371)
 shape = SubResource("CircleShape2D_lowyn")
 
 [node name="health_timer" type="Timer" parent="."]
