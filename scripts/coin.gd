@@ -10,7 +10,6 @@ var coin_icon_pos: Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("coins")
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
@@ -23,6 +22,7 @@ func _process(delta: float) -> void:
 	if position>coin_icon_pos:
 		added = true
 		player.gain_coin(1)
+		visible=false
 		coin_received.play()
 		await coin_received.finished
 		queue_free()

@@ -1,12 +1,11 @@
 extends Area2D
 
-var player =null
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("life")
-	var players = get_tree().get_nodes_in_group("player")
-	if players.size() > 0:
-		player = players[0]
+	add_to_group("life_icon")
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass

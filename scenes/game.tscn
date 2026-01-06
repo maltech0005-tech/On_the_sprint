@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ki55dae68snt" path="res://scenes/enemy_3.tscn" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cl41u0vtxtxcy" path="res://scenes/coin.tscn" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://buyx0seaqhkap" path="res://scenes/enemy_4.tscn" id="6_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://c6t2qohy8xqso" path="res://scenes/life.tscn" id="7_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://b82q3wq5hs22n" path="res://scenes/life.tscn" id="7_0tnpc"]
 [ext_resource type="AudioStream" uid="uid://b8kvtse6ctqd0" path="res://assets/music/gameloop.mp3" id="10_vtaks"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]

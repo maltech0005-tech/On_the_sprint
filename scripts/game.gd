@@ -12,6 +12,7 @@ extends Node2D
 
 var player = null
 var coin_icon = null
+var life_icon = null
 var loopnumber: int = 1
 var scenelength: int = 3024
 var lifenumber:int =0
@@ -24,6 +25,7 @@ func _ready() -> void:
 	if players.size() > 0:
 		player = players[0]
 	coin_icon = get_tree().get_first_node_in_group("coin_icon")
+	life_icon = get_tree().get_first_node_in_group("life_icon")
 	
 	var first_bgscene = background_scene.instantiate()
 	first_bgscene.position = Vector2(0, 100)
@@ -41,9 +43,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if (player.global_position.x+500) > scenelength*loopnumber:
 		load_new_bg_scene()
-	if player.global_position.x > scenelength*0.25*lifenumber:
+	if player.global_position.x > scenelength*0.5*lifenumber:
 		spawn_life()
-	spawn_life()
 		
 func load_new_bg_scene():
 	var new_piece = background_scene.instantiate()
@@ -61,9 +62,12 @@ func spawn_enemy():
 
 func spawn_life():
 	var add_life = life.instantiate()
-	add_life.position = Vector2(scenelength*0.25*(lifenumber+1), 300)
+	add_life.position = Vector2(scenelength*0.5*(lifenumber+1), 130)
 	add_child(add_life)
 	lifenumber+=1
+	var direction = (life_icon.global_position*scenelength*0.5*(lifenumber+1)- add_life.position).normalized()
+	add_life.direction=direction
+	add_life.life_icon_pos=life_icon.global_position
 	
 func release_coin():
 	var coin = coins.instantiate()

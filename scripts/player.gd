@@ -132,7 +132,11 @@ func count_distance():
 func gain_coin(amount):
 	coin_count+=amount
 	update_life_and_resources()
-	coin_delay.start(0.5)
+	
+func gain_life(amount):
+	if health<100:
+		health+=amount
+	update_life_and_resources()
 
 func _on_pause_pressed() -> void:
 	if is_play:

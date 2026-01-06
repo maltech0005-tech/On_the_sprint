@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjcarjwcfuqhq"]
+[gd_scene load_steps=14 format=3 uid="uid://bjcarjwcfuqhq"]
 
 [ext_resource type="Script" uid="uid://5n76jfmvxcdk" path="res://scripts/homepage.gd" id="1_goorp"]
 [ext_resource type="Texture2D" uid="uid://cgyhnrg2dx20e" path="res://assets/cover.png" id="1_vw1eu"]
 [ext_resource type="AudioStream" uid="uid://ciu8baxnpvnt1" path="res://assets/music/home.mp3" id="3_mnr3g"]
 [ext_resource type="Texture2D" uid="uid://dbljogle4h5ee" path="res://assets/Play Square Button.png" id="3_vpfph"]
-[ext_resource type="Texture2D" uid="uid://ci3hlbkrq74f3" path="res://assets/Questionmark Square Button.png" id="4_7mfhq"]
+[ext_resource type="Texture2D" uid="uid://tmbmlrdcahll" path="res://assets/Info Square Button.png" id="4_vpfph"]
 [ext_resource type="Texture2D" uid="uid://ctouu3dcddral" path="res://assets/Settings Square Button.png" id="5_wx083"]
 [ext_resource type="Texture2D" uid="uid://bl1i6qk65cab" path="res://assets/X col_Square Button.png" id="6_flo1l"]
 [ext_resource type="Texture2D" uid="uid://3dmep2wbk0wa" path="res://assets/Audio Square Button.png" id="7_wjdee"]
@@ -17,6 +17,8 @@ border_width_top = 6
 border_width_right = 6
 border_width_bottom = 8
 border_color = Color(0.9764706, 0.62352943, 0.03137255, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_vpfph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vw1eu"]
 content_margin_left = 63.0
@@ -54,7 +56,7 @@ expand_icon = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 54
 text = "Help"
-icon = ExtResource("4_7mfhq")
+icon = ExtResource("4_vpfph")
 icon_alignment = 2
 expand_icon = true
 
@@ -86,25 +88,38 @@ offset_bottom = 590.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_goorp")
 horizontal_scroll_mode = 0
 
-[node name="Label" type="Label" parent="help_tab/ScrollContainer"]
+[node name="Label" type="RichTextLabel" parent="help_tab/ScrollContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
+theme_override_colors/default_color = Color(0.9764706, 0.57254905, 0.019607844, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_vpfph")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_vw1eu")
-text = "                   How To Play                       
+bbcode_enabled = true
+text = "                 [b] [u]How To Play[/u][/b]                 
 use the arrow keys ⬅➡ to
 move left and right
 respectively, up arrow key
 ⬆ to jump, 'P' to punch and
 'K' to kick
-"
-horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="help_tab"]
-offset_left = 462.0
-offset_top = 274.0
-offset_right = 703.0
-offset_bottom = 301.0
-text = "___________________________________"
+[u]OTHER FEATURES[/u]
+you can pause game using
+the spacebar or onscreen 
+button.
+you can do a double jump 
+by pressing the up arrow while in
+air
+
+"
+fit_content = true
+scroll_following_visible_characters = true
+autowrap_mode = 0
+autowrap_trim_flags = 0
+horizontal_alignment = 1
 
 [node name="settings_tab" type="Node2D" parent="."]
 visible = false
